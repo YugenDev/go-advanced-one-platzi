@@ -50,6 +50,7 @@ func main() {
 	cache := NewCache(GetFibonacci)
 
 	fibo := []int{42, 40, 41, 42, 38}
+
 	for _, n := range fibo {
 		start := time.Now()
 		value, err := cache.Get(n)

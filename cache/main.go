@@ -1,8 +1,12 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"log"
+	"os"
+	"strconv"
+	"strings"
 	"time"
 )
 
@@ -48,10 +52,21 @@ func Fibonacci(n int) int {
 
 func main() {
 	cache := NewCache(GetFibonacci)
+	reader := bufio.NewReader(os.Stdin)
 
-	fibo := []int{42, 40, 41, 42, 38}
+	fmt.Println("Enter numbers separated by spaces to calculate Fibonacci (e.g., 42 40 41):")
+	input, _ := reader.ReadString('\n')
+	fmt.Println("")
+	input = strings.TrimSpace(input)
+	numbers := strings.Split(input, " ")
 
-	for _, n := range fibo {
+	for _, numStr := range numbers {
+		n, err := strconv.Atoi(numStr)
+		if err != nil {
+			log.Println("Invalid number:", numStr)
+			continue
+		}
+
 		start := time.Now()
 		value, err := cache.Get(n)
 		if err != nil {

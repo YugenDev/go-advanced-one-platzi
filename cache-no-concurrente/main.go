@@ -72,6 +72,7 @@ func main() {
 		if err != nil {
 			log.Println(err)
 		}
+		
 		fmt.Println(n, value, time.Since(start))
 	}
 }

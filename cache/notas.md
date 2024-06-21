@@ -82,3 +82,29 @@ Este código:
 - La caché **reduce el tiempo de respuesta** para las operaciones repetitivas.
 - La caché **es útil** para cálculos lentos o costosos, como la recuperación de datos de una base de datos o API.
 - La caché **debe usarse con cuidado** para evitar almacenar datos obsoletos.
+
+
+Este código en Go calcula números de Fibonacci y usa una caché para hacer los cálculos más rápidos. Imagina la caché como una "memoria" que guarda resultados anteriores para no tener que volver a calcularlos.
+
+¿Qué hace cada parte?
+
+Memory: Es como una caja que guarda la función para calcular Fibonacci (f) y un diccionario (cache) para almacenar los resultados.
+
+Function: Es simplemente un tipo de función que recibe un número y devuelve el resultado y un posible error.
+
+FunctionResult: Es una estructura que guarda el resultado del cálculo (value) y cualquier error que haya ocurrido (err).
+
+NewCache: Crea una nueva "caja" Memory con la función de Fibonacci y un diccionario vacío.
+
+Get: Este método de Memory busca el resultado en la caché. Si no lo encuentra, lo calcula usando la función f, lo guarda en la caché y lo devuelve.
+
+GetFibonacci: Esta función simplemente calcula el número de Fibonacci y devuelve el resultado (y un error nulo, ya que no esperamos errores aquí).
+
+Fibonacci: La famosa función recursiva que calcula el número de Fibonacci.
+
+main: La función principal del programa:
+
+Crea una caché para Fibonacci.
+Pide al usuario que ingrese números separados por espacios.
+Calcula el Fibonacci de cada número usando la caché y muestra el resultado y el tiempo que tardó.
+En resumen: El código calcula números de Fibonacci de manera eficiente usando una caché para evitar cálculos repetidos. ¡Es como tener una calculadora con memoria!

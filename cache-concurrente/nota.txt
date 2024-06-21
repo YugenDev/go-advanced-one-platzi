@@ -1,0 +1,4 @@
+Realmente en este algoritmo en este contexto no es necesaria la concurrencia 
+de hecho, a nivel de performance rinde peor y no vale la pena el aplicar mutex
+ya que este codigo de por sí no tiene mucha tendencia a generar errores por
+data race.
